@@ -4,6 +4,8 @@
 
 A native macOS app (SwiftUI) on top of a small Python core ([samsungtvws](https://github.com/xchwarze/samsung-tv-ws-api)).
 
+![Frame Deploy window](docs/screenshot.png)
+
 **[Download the app (macOS, Apple silicon)](https://github.com/soleimanmansouri/samsung-frame-deploy/releases/latest)**
 
 ## Features
@@ -30,6 +32,8 @@ open FrameDeploy.app
 The app is ad-hoc signed, not notarized. After copying or downloading it, macOS blocks the first launch: open *System Settings, Privacy & Security* and press **Open Anyway** (older macOS: right-click, Open). Allow *Local Network* access when macOS asks, otherwise the TV cannot be reached.
 
 ## Use
+
+Full guide: **[docs/MANUAL.md](docs/MANUAL.md)** (install, add a TV, deploy, update, troubleshooting).
 
 1. **Add device**, then **Scan network**, click your Frame, **Add**. Accept the *Allow* prompt on the TV.
 2. Pick a picture from the gallery (`~/Pictures/Frame Gallery`) or fetch one from Wikimedia Commons.

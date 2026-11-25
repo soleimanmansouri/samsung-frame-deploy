@@ -2,7 +2,9 @@ import AppKit
 import SwiftUI
 
 // Self-contained: frame.py ships inside the .app, the Python env is built per Mac on first run.
-let homeDir = FileManager.default.homeDirectoryForCurrentUser
+// FRAME_DEPLOY_HOME lets screenshots and tests run against a throwaway home.
+let homeDir = ProcessInfo.processInfo.environment["FRAME_DEPLOY_HOME"].map { URL(fileURLWithPath: $0) }
+    ?? FileManager.default.homeDirectoryForCurrentUser
 let venvDir = homeDir.appending(path: ".frame-deploy/venv")
 let pythonBin = venvDir.appending(path: "bin/python")
 let coreScript = Bundle.main.url(forResource: "frame", withExtension: "py")!
@@ -252,6 +254,7 @@ struct ContentView: View {
             NSApp.activate(ignoringOtherApps: true)
             model.reload()
             model.loadDevices()
+            if let out = ProcessInfo.processInfo.environment["FRAME_DEPLOY_SHOT"] { snapshot(model, to: out) }
         }
         .sheet(isPresented: $adding) {
             VStack(alignment: .leading, spacing: 10) {
@@ -301,6 +304,22 @@ struct ContentView: View {
             .textFieldStyle(.roundedBorder)
             .padding()
             .frame(width: 440)
+        }
+    }
+}
+
+/// Draws the app's own window to a PNG (no screen-recording permission needed), then quits.
+@MainActor func snapshot(_ model: GalleryModel, to path: String) {
+    NSApp.appearance = NSAppearance(named: .aqua)
+    DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+        model.selected = model.files.first
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            if let v = NSApp.windows.first?.contentView?.superview,
+               let rep = v.bitmapImageRepForCachingDisplay(in: v.bounds) {
+                v.cacheDisplay(in: v.bounds, to: rep)
+                try? rep.representation(using: .png, properties: [:])?.write(to: URL(fileURLWithPath: path))
+            }
+            NSApp.terminate(nil)
         }
     }
 }
