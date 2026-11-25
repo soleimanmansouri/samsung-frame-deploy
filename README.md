@@ -4,6 +4,8 @@
 
 A native macOS app (SwiftUI) on top of a small Python core ([samsungtvws](https://github.com/xchwarze/samsung-tv-ws-api)).
 
+**[Download the app (macOS, Apple silicon)](https://github.com/soleimanmansouri/samsung-frame-deploy/releases/latest)**
+
 ## Features
 
 - **Multiple TVs.** *Add device* scans your network for Frames, pairs with one click (accept the prompt on the TV) and remembers each TV. Switch targets from a picker.
