@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+app/.build/
+FrameDeploy.app/
+token*.txt
+.DS_Store
