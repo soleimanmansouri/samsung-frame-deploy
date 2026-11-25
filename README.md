@@ -25,7 +25,7 @@ cd samsung-frame-deploy
 open FrameDeploy.app
 ```
 
-The app is ad-hoc signed, not notarized. If you copy it to another Mac, the first launch needs right-click, then Open. Allow *Local Network* access when macOS asks, otherwise the TV cannot be reached.
+The app is ad-hoc signed, not notarized. After copying or downloading it, macOS blocks the first launch: open *System Settings, Privacy & Security* and press **Open Anyway** (older macOS: right-click, Open). Allow *Local Network* access when macOS asks, otherwise the TV cannot be reached.
 
 ## Use
 
