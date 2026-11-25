@@ -56,7 +56,7 @@ Pictures fetched from Wikimedia Commons keep their licence in a `.txt` next to t
 
 ## Credits
 
-Designed by [Soleiman Mansouri](https://github.com/soleimanmansouri), built with [Claude Code](https://claude.com/claude-code). Uses [samsungtvws](https://github.com/xchwarze/samsung-tv-ws-api) and the Wikimedia Commons API.
+Designed and built by [Soleiman Mansouri](https://github.com/soleimanmansouri). Uses [samsungtvws](https://github.com/xchwarze/samsung-tv-ws-api) and the Wikimedia Commons API.
 
 Not affiliated with or endorsed by Samsung. *Samsung* and *The Frame* are trademarks of Samsung Electronics.
 
